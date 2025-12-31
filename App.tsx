@@ -1,11 +1,11 @@
 
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import EarningCalculator from './components/EarningCalculator';
-import ContactForm from './components/ContactForm';
-import AIChatBot from './components/AIChatBot';
-import Machine3DGenerator from './components/Machine3DGenerator';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import EarningCalculator from './components/EarningCalculator.tsx';
+import ContactForm from './components/ContactForm.tsx';
+import AIChatBot from './components/AIChatBot.tsx';
+import Machine3DGenerator from './components/Machine3DGenerator.tsx';
 
 const App: React.FC = () => {
   return (
@@ -46,11 +46,10 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Seção Showcase Premium (Now Static) */}
+        {/* Seção Showcase Premium */}
         <section id="como-funciona" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-[#001B3D] rounded-[5rem] lg:rounded-[8rem] p-12 lg:p-32 text-white relative overflow-hidden shadow-[0_80px_150px_-30px_rgba(0,0,0,0.6)]">
-               {/* Decorative elements */}
                <div className="absolute top-0 right-0 w-full h-full bg-[#00A89E] opacity-[0.03] -skew-x-12 translate-x-1/2"></div>
                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#FFCC00] blur-[150px] opacity-10"></div>
                
@@ -87,7 +86,6 @@ const App: React.FC = () => {
                     </div>
                  </div>
 
-                 {/* Premium Machine Showcase */}
                  <div className="flex flex-col items-center justify-center">
                     <div className="w-full h-full min-h-[500px] flex items-center justify-center">
                       <Machine3DGenerator />
@@ -103,62 +101,34 @@ const App: React.FC = () => {
       </main>
 
       <footer className="bg-[#001B3D] text-gray-500 py-32 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
             <div className="col-span-1 md:col-span-2 space-y-12">
-              <div className="flex items-center space-x-4">
-                <div className="w-14 h-14 bg-[#00A89E] rounded-2xl flex items-center justify-center shadow-2xl shadow-[#00A89E]/30">
+              <div className="flex items-center justify-center md:justify-start space-x-4">
+                <div className="w-14 h-14 bg-[#00A89E] rounded-2xl flex items-center justify-center shadow-2xl">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col text-left">
                   <span className="text-4xl font-black text-white tracking-tighter uppercase italic leading-none">Compre<span className="text-[#00A89E]">Pag</span></span>
                   <span className="text-[10px] text-white/30 font-black uppercase tracking-[0.4em] mt-1">Partners Portal</span>
                 </div>
               </div>
-              <p className="text-xl max-w-sm leading-relaxed font-medium text-gray-400">
+              <p className="text-xl max-w-sm leading-relaxed font-medium text-gray-400 mx-auto md:mx-0">
                 Liderando a revolução nos meios de pagamento através de parceiros estrategicamente posicionados.
               </p>
-              <div className="flex space-x-6">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="w-12 h-12 bg-white/5 rounded-2xl border border-white/10 hover:border-[#00A89E] hover:bg-[#00A89E]/10 transition-all cursor-pointer flex items-center justify-center group">
-                    <div className="w-2 h-2 bg-white/20 rounded-full group-hover:bg-[#00A89E]"></div>
-                  </div>
-                ))}
-              </div>
             </div>
             <div>
               <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-10">Mapa do Portal</h4>
               <ul className="space-y-6 text-sm font-bold">
-                <li><a href="#beneficios" className="hover:text-[#00A89E] transition-all flex items-center group"><span className="w-0 group-hover:w-4 transition-all h-[2px] bg-[#00A89E] mr-0 group-hover:mr-2"></span>Diferenciais</a></li>
-                <li><a href="#calculadora" className="hover:text-[#00A89E] transition-all flex items-center group"><span className="w-0 group-hover:w-4 transition-all h-[2px] bg-[#00A89E] mr-0 group-hover:mr-2"></span>Simulador de Lucros</a></li>
-                <li><a href="#como-funciona" className="hover:text-[#00A89E] transition-all flex items-center group"><span className="w-0 group-hover:w-4 transition-all h-[2px] bg-[#00A89E] mr-0 group-hover:mr-2"></span>Tecnologia</a></li>
-                <li><a href="#contato" className="hover:text-[#00A89E] transition-all flex items-center group"><span className="w-0 group-hover:w-4 transition-all h-[2px] bg-[#00A89E] mr-0 group-hover:mr-2"></span>Seja Parceiro</a></li>
+                <li><a href="#beneficios" className="hover:text-[#00A89E]">Diferenciais</a></li>
+                <li><a href="#calculadora" className="hover:text-[#00A89E]">Simulador</a></li>
+                <li><a href="#contato" className="hover:text-[#00A89E]">Seja Parceiro</a></li>
               </ul>
             </div>
             <div className="space-y-8">
-              <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-10">Suporte ao Líder</h4>
-              <div>
-                <p className="text-white font-black text-3xl mb-1 tracking-tighter">0800 591 6142</p>
-                <p className="text-[10px] uppercase tracking-widest font-black text-white/30">Linha Direta Expansão</p>
-              </div>
-              <div className="pt-8">
-                <div className="bg-white/5 border border-white/10 p-6 rounded-[2rem]">
-                  <p className="text-[10px] font-black uppercase text-white/40 mb-3 tracking-widest">Status da Rede</p>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="text-xs font-black text-white uppercase tracking-widest">Sistemas Online</span>
-                  </div>
-                </div>
-              </div>
+              <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-10">Suporte</h4>
+              <p className="text-white font-black text-2xl">0800 591 6142</p>
             </div>
-          </div>
-          <div className="mt-32 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] opacity-40 gap-8">
-            <p>© 2024 COMPREPAG PAGAMENTOS LTDA.</p>
-            <div className="flex items-center space-x-8">
-              <p>POLÍTICA DE PRIVACIDADE</p>
-              <p>TERMOS DE PARCERIA</p>
-            </div>
-            <p className="text-[#00A89E]">SISTEMA OFICIAL DE EXPANSAO</p>
           </div>
         </div>
       </footer>

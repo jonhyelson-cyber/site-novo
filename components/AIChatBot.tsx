@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { getPartnerAssistantResponse } from '../services/geminiService';
+import { getPartnerAssistantResponse } from '../services/geminiService.ts';
 
 const AIChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
