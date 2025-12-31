@@ -18,7 +18,7 @@ export const generate3DMachineImage = async (base64Image: string) => {
             },
           },
           {
-            text: 'Studio product photography of a modern credit card terminal. High-end lighting, clean white background, 8K resolution, vibrant colors. Cinematic bokeh and realistic textures.',
+            text: 'Studio product photography of a modern credit card machine. High-end lighting, clean white background, 8K resolution, vibrant colors. Cinematic bokeh and realistic textures.',
           },
         ],
       },
@@ -67,7 +67,7 @@ export const generateRepresentativeAvatar = async (base64Image: string) => {
             },
           },
           {
-            text: 'A professional and friendly Brazilian business representative wearing a modern business suit with a subtle "ComprePag" pin. High-end corporate portrait photography, soft studio lighting, blurred office background. Photorealistic, 8K resolution.',
+            text: 'A professional and friendly Brazilian business representative holding a modern credit card machine (maquininha de cartão). High-end corporate portrait photography, soft studio lighting, blurred office background. Photorealistic, 8K resolution.',
           },
         ],
       },

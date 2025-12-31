@@ -14,7 +14,7 @@ const Machine3DGenerator: React.FC = () => {
         <div className="relative w-full aspect-square max-w-[550px] flex items-center justify-center rounded-[4rem] overflow-hidden border-8 border-white/10 shadow-[0_60px_100px_-20px_rgba(0,0,0,0.8)] transform rotate-3 transition-all duration-1000 group-hover:rotate-0 hover:scale-[1.02]">
           <img 
             src={BRAND_IMAGES.PRODUCT_MACHINE} 
-            alt="Hardware Profissional ComprePag" 
+            alt="Maquininha de Cartão ComprePag Profissional" 
             className="w-full h-full object-cover"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
@@ -27,7 +27,7 @@ const Machine3DGenerator: React.FC = () => {
           <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end">
              <div className="space-y-2">
                 <span className="inline-block px-3 py-1 bg-[#00A89E] text-white text-[8px] font-black uppercase tracking-[0.3em] rounded-full">Recurso Premium</span>
-                <h4 className="text-white text-3xl font-black tracking-tighter leading-none italic uppercase">Design de Elite</h4>
+                <h4 className="text-white text-3xl font-black tracking-tighter leading-none italic uppercase">A Melhor Maquininha</h4>
              </div>
              <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
                 <span className="text-white text-xs font-black">TOUCH HD</span>
@@ -54,7 +54,7 @@ const Machine3DGenerator: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-           <p className="text-blue-100/40 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Hardware testado e aprovado em campo</p>
+           <p className="text-blue-100/40 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Maquininha testada e aprovada em campo</p>
            <a 
             href="#contato"
             className="group relative inline-flex items-center px-16 py-8 bg-[#00A89E] rounded-[2.5rem] transition-all hover:scale-105 hover:bg-[#008e85] shadow-[0_30px_70px_-15px_rgba(0,168,158,0.6)]"

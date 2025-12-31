@@ -32,13 +32,13 @@ const App: React.FC = () => {
                 O Ecossistema <br className="hidden md:block"/><span className="text-[#00A89E]">Mais Robusto</span> do Mercado
               </h2>
               <p className="mt-8 text-xl text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed">
-                Equipamentos de ponta e um portfólio completo de serviços financeiros para maximizar seus lucros.
+                Maquininhas de ponta e um portfólio completo de serviços financeiros para maximizar seus lucros.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
-                { title: "Hardware de Elite", desc: "Terminais ultrarrápidos com tecnologia de chip 4G ilimitado.", icon: "🔋", color: "bg-blue-50/50" },
+                { title: "Maquininha de Elite", desc: "Maquininhas ultrarrápidas com tecnologia de chip 4G ilimitado.", icon: "🔋", color: "bg-blue-50/50" },
                 { title: "Comissão Recorrente", desc: "Ganhos sobre cada transação realizada mensalmente.", icon: "💰", color: "bg-[#00A89E]/5" },
                 { title: "Produtos COBAN", desc: "Acesso a crédito, consórcios e seguros para sua rede.", icon: "🏛️", color: "bg-[#FFCC00]/5" },
                 { title: "Gestão Inteligente", desc: "Plataforma para gerenciar vendas e equipe em tempo real.", icon: "📊", color: "bg-blue-50/50" }
@@ -53,7 +53,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Seção Showcase Premium */}
+        {/* Seção Showcase da Maquininha */}
         <section id="como-funciona" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-[#001B3D] rounded-[5rem] lg:rounded-[8rem] p-12 lg:p-32 text-white relative overflow-hidden shadow-[0_80px_150px_-30px_rgba(0,0,0,0.6)]">
@@ -64,23 +64,23 @@ const App: React.FC = () => {
                  <div className="space-y-16">
                     <div className="space-y-6">
                       <div className="inline-block px-4 py-1 rounded-full border border-[#00A89E]/30 text-[#00A89E] text-[10px] font-black uppercase tracking-[0.4em]">
-                        Product Design
+                        Tecnologia ComprePag
                       </div>
                       <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.85]">
-                        Hardware <br/>
-                        <span className="text-[#00A89E]">Premium.</span>
+                        Maquininha de <br/>
+                        <span className="text-[#00A89E]">Cartão.</span>
                       </h2>
                     </div>
 
                     <p className="text-xl text-blue-100/50 font-medium max-w-lg leading-relaxed">
-                      Nosso terminal ComprePag foi projetado para alta performance sob demanda. Explore a tecnologia que seus clientes vão amar usar.
+                      A maquininha ComprePag é a ferramenta de trabalho definitiva para o seu cliente. Tecnologia de ponta, design ergonômico e a conexão mais rápida do mercado.
                     </p>
                     
                     <div className="grid grid-cols-1 gap-12">
                       {[
-                        {step: "01", t: "Ativação Digital", d: "Liberação imediata do seu painel de parceiro após a adesão simbólica de R$ 100."},
-                        {step: "02", t: "Ecossistema COBAN", d: "Expanda seus ganhos oferecendo crédito, consórcios e seguros além das máquinas."},
-                        {step: "03", t: "Comissão Recorrente", d: "Construa uma carteira sólida e ganhe sobre cada transação realizada mensalmente."}
+                        {step: "01", t: "Conexão Total", d: "Equipada com chip 4G ilimitado e Wi-Fi de alta velocidade."},
+                        {step: "02", t: "Ecossistema Completo", d: "Aceita todas as bandeiras, Pix no visor e QR Code dinâmico."},
+                        {step: "03", t: "Gestão Integrada", d: "Relatórios de vendas direto na maquininha e no app do cliente."}
                       ].map((s, i) => (
                         <div key={i} className="flex items-start space-x-8 group">
                           <span className="text-7xl font-black text-white/5 group-hover:text-[#00A89E]/20 transition-colors leading-none select-none">{s.step}</span>

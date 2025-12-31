@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
              <div className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)] border-8 border-white/10 backdrop-blur-sm transform -rotate-2 group-hover:rotate-0 transition-all duration-700 hover:scale-[1.02]">
                <img 
                  src={BRAND_IMAGES.PRODUCT_MACHINE} 
-                 alt="ComprePag Terminal em Uso"
+                 alt="Maquininha ComprePag em Uso"
                  className="w-full h-auto object-cover"
                  onError={(e) => {
                    const target = e.target as HTMLImageElement;
