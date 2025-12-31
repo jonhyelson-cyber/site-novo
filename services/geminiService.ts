@@ -1,20 +1,10 @@
 
 import { GoogleGenAI } from "@google/genai";
 
+// Refactored to use process.env.API_KEY directly and comply with initialization rules
 export const getPartnerAssistantResponse = async (userMessage: string) => {
-  // Verificação segura para evitar erro de 'process is not defined' no browser puro
-  let apiKey = "";
-  try {
-    apiKey = process.env.API_KEY || "";
-  } catch (e) {
-    console.warn("API_KEY não encontrada no ambiente.");
-  }
-  
-  if (!apiKey || apiKey === "undefined") {
-    return "Olá! Para que eu possa te ajudar com a IA, é necessário configurar a chave API_KEY no painel do Vercel. Mas já te adianto: a adesão é de apenas R$ 100,00 e o retorno é através de comissão recorrente!";
-  }
-
-  const ai = new GoogleGenAI({ apiKey });
+  // Always create a new instance right before use to ensure latest API key from the context
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   try {
     const response = await ai.models.generateContent({

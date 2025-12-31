@@ -1,9 +1,9 @@
 
 import { GoogleGenAI } from "@google/genai";
 
+// Fix: Standard machine image generation using Gemini 3 Pro Image
 export const generate3DMachineImage = async (base64Image: string) => {
-  // CRITICAL: Instantiate GoogleGenAI inside the function to pick up the updated process.env.API_KEY
-  // after the user selects their key via window.aistudio.openSelectKey().
+  // Always create a new instance right before use to ensure latest API key
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -18,7 +18,7 @@ export const generate3DMachineImage = async (base64Image: string) => {
             },
           },
           {
-            text: 'Create a hyper-realistic, high-end 3D studio render of this specific credit card machine. Cinematic studio lighting, soft shadows, premium metallic and matte plastic textures. The screen should look high-resolution and vibrant. 8K quality, sharp focus, clean neutral background. Style: Minimalist, professional product photography like a premium tech brand launch.',
+            text: 'Studio product photography of a modern credit card terminal. High-end lighting, clean white background, 8K resolution, vibrant colors. Cinematic bokeh and realistic textures.',
           },
         ],
       },
@@ -31,7 +31,7 @@ export const generate3DMachineImage = async (base64Image: string) => {
     });
 
     if (!response.candidates?.[0]?.content?.parts) {
-      throw new Error("Falha ao gerar a imagem: Nenhum conteúdo retornado pela IA.");
+      throw new Error("Nenhum conteúdo retornado pela IA.");
     }
 
     for (const part of response.candidates[0].content.parts) {
@@ -39,11 +39,60 @@ export const generate3DMachineImage = async (base64Image: string) => {
         return `data:image/png;base64,${part.inlineData.data}`;
       }
     }
-    throw new Error("Nenhum dado de imagem encontrado na resposta da IA.");
+    throw new Error("Dado de imagem não encontrado.");
   } catch (error: any) {
     console.error("Image Generation Error:", error);
-    // If the request fails with this specific error, it means the key is invalid or selection is required
-    if (error?.message?.includes("Requested entity was not found")) {
+    const msg = error?.message || "";
+    if (msg.includes("permission denied") || msg.includes("Requested entity was not found")) {
+      throw new Error("API_KEY_EXPIRED_OR_INVALID");
+    }
+    throw error;
+  }
+};
+
+// Fix: Added missing export generateRepresentativeAvatar for AvatarGenerator component
+export const generateRepresentativeAvatar = async (base64Image: string) => {
+  // Always create a new instance right before use to ensure latest API key
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-3-pro-image-preview',
+      contents: {
+        parts: [
+          {
+            inlineData: {
+              data: base64Image,
+              mimeType: 'image/png',
+            },
+          },
+          {
+            text: 'A professional and friendly Brazilian business representative wearing a modern business suit with a subtle "ComprePag" pin. High-end corporate portrait photography, soft studio lighting, blurred office background. Photorealistic, 8K resolution.',
+          },
+        ],
+      },
+      config: {
+        imageConfig: {
+          aspectRatio: "1:1",
+          imageSize: "1K"
+        },
+      },
+    });
+
+    if (!response.candidates?.[0]?.content?.parts) {
+      throw new Error("Nenhum conteúdo retornado pela IA.");
+    }
+
+    for (const part of response.candidates[0].content.parts) {
+      if (part.inlineData) {
+        return `data:image/png;base64,${part.inlineData.data}`;
+      }
+    }
+    throw new Error("Dado de imagem não encontrado.");
+  } catch (error: any) {
+    console.error("Avatar Generation Error:", error);
+    const msg = error?.message || "";
+    if (msg.includes("permission denied") || msg.includes("Requested entity was not found")) {
       throw new Error("API_KEY_EXPIRED_OR_INVALID");
     }
     throw error;

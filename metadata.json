@@ -1,8 +1,5 @@
 {
   "name": "ComprePag Partner Portal",
   "description": "Uma plataforma profissional voltada para o recrutamento de representantes e parceiros comerciais para a ComprePag, focada em soluções de pagamentos e crescimento financeiro.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }
