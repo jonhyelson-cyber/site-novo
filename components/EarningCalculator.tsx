@@ -26,7 +26,7 @@ const EarningCalculator: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black text-[#001B3D]">Simule seu <span className="text-[#00A89E]">Crescimento</span></h2>
-          <p className="mt-4 text-xl text-gray-600">O único modelo de negócio que une recorrência real com bônus de liderança.</p>
+          <p className="mt-4 text-xl text-gray-600">O único modelo de negócio que une comissão recorrente com bônus de liderança e produtos COBAN.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -77,7 +77,7 @@ const EarningCalculator: React.FC = () => {
                   R$ {(chartData[3].earnings).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </h3>
                 <p className="text-[9px] text-gray-400 mt-4 leading-tight uppercase font-bold">
-                  Inclui Recorrência Direta + Bônus Equipe (5%) + Mix de Produtos COBAN.
+                  Inclui Comissão Recorrente + Bônus Equipe (5%) + Mix de Produtos COBAN (Crédito e Seguros).
                 </p>
               </div>
             </div>

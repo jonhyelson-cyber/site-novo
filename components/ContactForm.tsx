@@ -65,21 +65,22 @@ const ContactForm: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="text-white space-y-10">
             <div className="inline-block px-4 py-1 rounded-full border border-[#00A89E] text-[#00A89E] text-[10px] font-black uppercase tracking-[0.4em]">
-              Seja um franqueado
+              Seja um parceiro líder
             </div>
             <h2 className="text-6xl font-black tracking-tighter leading-none">
               Inicie sua <br/>
               <span className="text-[#00A89E]">Expansão.</span>
             </h2>
             <p className="text-xl text-blue-100/60 max-w-lg leading-relaxed font-medium">
-              Garanta sua plataforma oficial ComprePag por apenas R$ 100,00 e tenha acesso ao portal de gestão, treinamentos e suporte exclusivo.
+              Garanta sua plataforma oficial ComprePag por apenas R$ 100,00 e tenha acesso ao portal de gestão, treinamentos e ao mix completo COBAN.
             </p>
             
             <div className="grid grid-cols-1 gap-6">
               {[
                 { t: "Ativação Instantânea", d: "Acesso ao painel em até 15 minutos." },
-                { t: "Certificação COBAN", d: "Treinamento completo de correspondente bancário." },
-                { t: "Suporte VIP", d: "Linha direta com o time de implantação." }
+                { t: "Portfólio COBAN Completo", d: "Venda Crédito, Seguros e Consórcios com altas margens." },
+                { t: "Treinamento Especializado", d: "Capacitação completa para alta performance em vendas." },
+                { t: "Atendimento VIP", d: "Linha direta com o time de implantação." }
               ].map((item, i) => (
                 <div key={i} className="flex items-start space-x-5 group">
                   <div className="bg-[#00A89E] p-2 rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-[#00A89E]/20">

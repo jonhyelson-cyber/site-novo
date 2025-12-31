@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const whatsappNumber = "5592981061163";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20como%20ser%20um%20representante%20ComprePag.`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +18,7 @@ const Navbar: React.FC = () => {
     <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg py-3' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* LOGO OFICIAL COMPREPAG */}
-        <div className="flex items-center space-x-2 group cursor-pointer">
+        <div className="flex items-center space-x-2 group cursor-pointer" onClick={() => window.scrollTo(0,0)}>
           <div className="relative w-10 h-10 flex-shrink-0">
              <div className="absolute inset-0 bg-[#00A89E] rounded-xl flex items-center justify-center shadow-lg shadow-[#00A89E]/20 group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
@@ -45,6 +47,15 @@ const Navbar: React.FC = () => {
               {item}
             </a>
           ))}
+          <a 
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`font-black text-[10px] uppercase tracking-[0.2em] transition-all hover:text-[#25D366] flex items-center space-x-2 ${scrolled ? 'text-gray-600' : 'text-white/80'}`}
+          >
+            <span>WhatsApp</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
+          </a>
           <a href="#contato" className="bg-[#00A89E] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#008e85] transition-all transform hover:scale-105 shadow-xl shadow-[#00A89E]/30">
             SEJA UM LÍDER
           </a>

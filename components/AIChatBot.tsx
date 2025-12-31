@@ -5,7 +5,7 @@ import { getPartnerAssistantResponse } from '../services/geminiService.ts';
 const AIChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{role: 'user' | 'bot', text: string}[]>([
-    {role: 'bot', text: 'Olá! Sou o assistente de expansão ComprePag. Como posso te ajudar a lucrar conosco hoje?'}
+    {role: 'bot', text: 'Olá! Sou o assistente de expansão ComprePag. Como posso te ajudar a lucrar conosco hoje? Você também pode falar com nosso suporte direto pelo WhatsApp: 92 98106-1163.'}
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);

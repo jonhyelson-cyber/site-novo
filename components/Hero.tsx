@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         <div className="text-white space-y-10 text-center lg:text-left">
           <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#FFCC00] text-xs font-black uppercase tracking-[0.3em] mx-auto lg:mx-0">
             <span className="w-2 h-2 rounded-full bg-[#FFCC00] animate-pulse"></span>
-            <span>Oportunidade de Carreira 2024</span>
+            <span>Oportunidade de Carreira 2026</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tighter">
@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
              
              <div className="mt-8 grid grid-cols-2 gap-4 w-full">
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                   <p className="text-[10px] font-black text-[#00A89E] uppercase tracking-widest">Recorrência</p>
-                   <p className="text-xl font-bold text-white">Mensal</p>
+                   <p className="text-[10px] font-black text-[#00A89E] uppercase tracking-widest">Comissão</p>
+                   <p className="text-xl font-bold text-white">Recorrente</p>
                 </div>
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
                    <p className="text-[10px] font-black text-[#FFCC00] uppercase tracking-widest">Taxa</p>
