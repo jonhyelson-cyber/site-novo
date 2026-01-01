@@ -10,8 +10,13 @@ const EarningCalculator: React.FC = () => {
   const chartData = useMemo(() => {
     const directCommissionRate = 0.0035 * 1.2; 
     const directEarnings = clients * avgTicket * directCommissionRate;
-    const teamCommissionBonus = teamSize * (directEarnings * 0.05);
-    const totalMonthlyEarnings = directEarnings + teamCommissionBonus;
+    
+    // Bônus baseado no TPV da equipe (estimativa)
+    const teamAvgTpvPerRep = 100000; // Média que cada rep recruta no time
+    const teamBonusRate = 0.0005; // 0.05% sobre o TPV do time (exemplo de bônus de liderança)
+    const teamEarnings = teamSize * teamAvgTpvPerRep * teamBonusRate;
+    
+    const totalMonthlyEarnings = directEarnings + teamEarnings;
     
     return [
       { month: 'Mês 1', earnings: totalMonthlyEarnings },
@@ -22,11 +27,11 @@ const EarningCalculator: React.FC = () => {
   }, [clients, avgTicket, teamSize]);
 
   return (
-    <section id="calculadora" className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black text-[#001B3D]">Simule seu <span className="text-[#00A89E]">Crescimento</span></h2>
-          <p className="mt-4 text-xl text-gray-600">O único modelo de negócio que une comissão recorrente com bônus de liderança e produtos COBAN.</p>
+          <p className="mt-4 text-xl text-gray-600">Alavanque seus ganhos pessoais com o bônus de faturamento da sua equipe.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -57,15 +62,20 @@ const EarningCalculator: React.FC = () => {
               </div>
 
               <div className="pt-6 border-t border-gray-100">
-                <label className="flex justify-between text-xs font-black text-[#001B3D] uppercase tracking-widest mb-4">
-                  <span>Liderança de Equipe</span>
-                  <span className="text-[#00A89E]">{teamSize} representantes</span>
-                </label>
+                <div className="flex justify-between items-center mb-4">
+                   <label className="text-xs font-black text-[#001B3D] uppercase tracking-widest">
+                     <span>Liderança de Equipe (Expansão)</span>
+                   </label>
+                   <span className="bg-[#FFCC00] text-[#001B3D] px-3 py-1 rounded-full text-[10px] font-black">{teamSize} representantes liderados</span>
+                </div>
                 <input 
                   type="range" min="0" max="50" value={teamSize} 
                   onChange={(e) => setTeamSize(parseInt(e.target.value))}
                   className="w-full h-3 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-[#FFCC00]"
                 />
+                <p className="text-[9px] text-gray-400 mt-3 font-bold uppercase tracking-wider">
+                  ⚠️ Como líder, você recebe participação sobre o volume transacionado por cada membro do seu time.
+                </p>
               </div>
 
               <div className="bg-[#001B3D] p-8 rounded-[2rem] text-white shadow-2xl shadow-[#001B3D]/30 relative overflow-hidden">
@@ -77,7 +87,7 @@ const EarningCalculator: React.FC = () => {
                   R$ {(chartData[3].earnings).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </h3>
                 <p className="text-[9px] text-gray-400 mt-4 leading-tight uppercase font-bold">
-                  Inclui Comissão Recorrente + Bônus Equipe (5%) + Mix de Produtos COBAN (Crédito e Seguros).
+                  Inclui: Comissão Recorrente + Bônus sobre Faturamento do Time + Mix COBAN.
                 </p>
               </div>
             </div>

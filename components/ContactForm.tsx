@@ -9,16 +9,29 @@ const ContactForm: React.FC = () => {
     email: ''
   });
 
+  const whatsappNumber = "5592981061163";
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
     
-    // Simulação de integração: Aqui você conectaria com um Webhook ou API
-    console.log("Novo Lead ComprePag:", formData);
+    // Formata a mensagem para o WhatsApp
+    const message = encodeURIComponent(
+      `*NOVO LEAD - PORTAL COMPREPAG*\n\n` +
+      `*Nome:* ${formData.nome}\n` +
+      `*WhatsApp:* ${formData.whatsapp}\n` +
+      `*E-mail:* ${formData.email}\n\n` +
+      `_Interessado em se tornar representante líder._`
+    );
     
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+    
+    // Simula um delay de processamento para feedback visual
     setTimeout(() => {
       setStatus('success');
-    }, 2000);
+      // Abre o WhatsApp em uma nova aba
+      window.open(whatsappLink, '_blank');
+    }, 1500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,30 +44,37 @@ const ContactForm: React.FC = () => {
         <div className="w-24 h-24 bg-[#00A89E]/10 rounded-full flex items-center justify-center mx-auto mb-8 text-[#00A89E]">
           <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
         </div>
-        <h3 className="text-4xl font-black text-[#001B3D] mb-4 tracking-tighter uppercase italic">Dados Recebidos!</h3>
+        <h3 className="text-4xl font-black text-[#001B3D] mb-4 tracking-tighter uppercase italic">Dados Enviados!</h3>
         <p className="text-gray-600 text-xl font-medium leading-relaxed">
-          Seja bem-vindo, <span className="text-[#00A89E] font-black">{formData.nome.split(' ')[0]}</span>! 
-          Nossa equipe de expansão entrará em contato via WhatsApp em breve.
+          Obrigado, <span className="text-[#00A89E] font-black">{formData.nome.split(' ')[0]}</span>! 
+          Sua mensagem foi enviada. Caso o WhatsApp não tenha aberto automaticamente, clique no botão abaixo.
         </p>
-        <div className="mt-8 p-4 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-          <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Protocolo de Credenciamento</p>
-          <p className="font-mono text-sm text-[#001B3D] font-bold">CP-{Math.floor(Math.random() * 90000) + 10000}</p>
+        <div className="mt-8">
+            <button 
+              onClick={() => {
+                const message = encodeURIComponent(`*NOVO LEAD*\n*Nome:* ${formData.nome}\n*WhatsApp:* ${formData.whatsapp}\n*E-mail:* ${formData.email}`);
+                window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+              }}
+              className="bg-[#25D366] text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-105 transition-all"
+            >
+              Abrir WhatsApp Novamente
+            </button>
         </div>
         <button 
           onClick={() => {
             setFormData({nome: '', whatsapp: '', email: ''});
             setStatus('idle');
           }}
-          className="mt-10 text-[#00A89E] font-black uppercase tracking-[0.2em] text-xs hover:underline"
+          className="mt-10 text-gray-400 font-black uppercase tracking-[0.2em] text-xs hover:underline block mx-auto"
         >
-          Realizar outro cadastro
+          Novo cadastro
         </button>
       </div>
     );
   }
 
   return (
-    <section id="contato" className="py-32 bg-[#001B3D] relative overflow-hidden">
+    <section className="py-32 bg-[#001B3D] relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#00A89E] rounded-full blur-[150px]"></div>
@@ -72,14 +92,14 @@ const ContactForm: React.FC = () => {
               <span className="text-[#00A89E]">Expansão.</span>
             </h2>
             <p className="text-xl text-blue-100/60 max-w-lg leading-relaxed font-medium">
-              Garanta sua plataforma oficial ComprePag por apenas R$ 100,00 e tenha acesso ao portal de gestão, treinamentos e ao mix completo COBAN.
+              Garanta sua plataforma oficial ComprePag por apenas R$ 100,00 e tenha acesso às ferramentas para recrutar e gerir sua própria equipe.
             </p>
             
             <div className="grid grid-cols-1 gap-6">
               {[
+                { t: "Recrutamento de Equipe", d: "Monte seu time e ganhe bônus sobre o faturamento deles." },
                 { t: "Ativação Instantânea", d: "Acesso ao painel em até 15 minutos." },
                 { t: "Portfólio COBAN Completo", d: "Venda Crédito, Seguros e Consórcios com altas margens." },
-                { t: "Treinamento Especializado", d: "Capacitação completa para alta performance em vendas." },
                 { t: "Atendimento VIP", d: "Linha direta com o time de implantação." }
               ].map((item, i) => (
                 <div key={i} className="flex items-start space-x-5 group">
@@ -149,13 +169,10 @@ const ContactForm: React.FC = () => {
                   {status === 'loading' ? (
                     <>
                       <svg className="animate-spin h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                      <span>PROCESSANDO...</span>
+                      <span>ENVIANDO...</span>
                     </>
-                  ) : 'ENVIAR PROPOSTA AGORA'}
+                  ) : 'SEJA REPRESENTANTE AGORA'}
                 </button>
-                <p className="text-center mt-6 text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">
-                  🔒 Seus dados estão seguros e protegidos.
-                </p>
               </div>
             </form>
           </div>
